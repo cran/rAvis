@@ -1,0 +1,31 @@
+\name{avisContributorsSummary}
+\alias{avisContributorsSummary}
+\title{avisContributorsSummary}
+\usage{
+avisContributorsSummary()
+}
+\value{
+This function returns a matrix
+}
+\description{
+Returns a table with the observations aggregated by
+birdwatcher.
+}
+\note{
+This function does not allow arguments
+}
+\examples{
+\dontrun{
+birdwatchers<- avisContributorsSummary()
+par (mfrow =c(2,2))
+plot (birdwatchers[,2],birdwatchers[,3], xlab=colnames (birdwatchers)[2],
+ylab=colnames (birdwatchers)[3], pch=19)
+plot (birdwatchers[,2],birdwatchers[,4], xlab=colnames (birdwatchers)[2],
+ylab=colnames (birdwatchers)[4], pch=19)
+plot (birdwatchers[,2],birdwatchers[,5], xlab=colnames (birdwatchers)[2],
+ylab=colnames (birdwatchers)[5], pch=19)
+plot (birdwatchers[,2],birdwatchers[,6], xlab=colnames (birdwatchers)[2],
+ylab=colnames (birdwatchers)[6], pch=19)
+}
+}
+

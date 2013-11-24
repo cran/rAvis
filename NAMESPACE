@@ -1,0 +1,13 @@
+exportPattern("^[^\\.]")
+import(stringr)
+importFrom(XML, readHTMLTable, htmlParse, getNodeSet, toString.XMLNode, xmlValue)
+import(tools)
+import(RCurl)
+import(scrapeR)
+import(gdata)
+import(scales)
+import(rgdal)
+import(maptools)
+import(sp)
+importFrom (raster, plotRGB, text, brick)
+
