@@ -28,7 +28,7 @@
 
 # logs to web with ravis specific user
 .avisUserLogin <- function() {
-  return (.avisLogin("ravis-user", "ravis-pass7592Hz%"))
+  return (.avisLogin("ravis-user", ravis_credentials[[1]]))
 }
 
 # logs to web with user defined credentials
@@ -40,7 +40,8 @@
   html = postForm(.ravis_url_login, 
     .params = params, 
     curl = .avisCreateCurlHandler(), 
-    style="POST")
+    style="POST",
+    .encoding="ISO-8859-1")
 
   status<- .parse.avisLoginStatusFromHTML(html)[1]
 

@@ -3,10 +3,8 @@
 context ("avisQuery")
 
 test_that("test if avisQuery has the correct structure",{ 
-              response<- avisQuery(species="Pica pica")
-              expect_true(is.data.frame (response))
-              expect_match (names (response)[1], "Id..Obs.")
-              expect_match (response$Especie, "Pica pica")
-            })
-
-# TODO: check filtered queryies do filter results (eg: habitat="bosque")
+    response<- avisQuery(species="Pica pica")
+    expect_true(is.data.frame (response), info = "is dataframe")
+    expect_match (names (response)[1], "Id..Obs.", info = "names are ok")
+    expect_equal(as.character(response$Especie[1]), "Pica pica", info = "column species ok")
+})
