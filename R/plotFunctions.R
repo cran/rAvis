@@ -1,4 +1,3 @@
-
 #' Renders a map for each of the species provided in names
 #' 
 #' This function map the species occurrences in the Iberian Peninsula.
@@ -14,7 +13,7 @@
 #' @param maptype Available types of map are 'admin', 
 #' administrative provinces of Spain (by default) 
 #' or 'phys', physical map of Spain.
-#' @param ... other filters passed to the observations query with avisQuerySpecies, 
+#' @param ... other filters passed to the observations query with avisQuerySpecies
 #' @return a plot with the occurrences of the species in the Iberian Peninsula. Maps have high resolution, so they could be printed.
 #' @export 
 #' @examples \dontrun{
@@ -67,8 +66,8 @@ avisMapSpecies<- function (names, maptype = 'admin', ...)
 #' @export 
 #' @examples \dontrun{
 #' obs<- avisQuerySpecies ("Pica pica", args = list(habitat = "bosque"))
-#' avisMap(obs, label = "Occurrences of Pica pica in Proyecto AVIS")
-#' avisMap(obs, label = "Occurrences of Pica pica in Proyecto AVIS", maptype = "phys")
+#' avisMap(obs, label = "Pica pica")
+#' avisMap(obs, label = "Pica pica", maptype = "phys")
 #'}
  
 avisMap<-function(obs, label = '', maptype = 'admin')
@@ -103,6 +102,11 @@ avisMap<-function(obs, label = '', maptype = 'admin')
 .avisRenderMapAdmin<-function(obs, label)
 {
   # ravis_shape_spain: shape in package data folder
+  
+  # hack for avoiding NOTE on check: 'no visible binding for global variable'
+  # see: http://stackoverflow.com/questions/9439256/how-can-i-handle-r-cmd-check-no-visible-binding-for-global-variable-notes-when
+  ravis_shape_spain <- NULL
+  rm(ravis_shape_spain)
 
   plot (ravis_shape_spain, border="grey75", ylim=c(34,44), xlim=c(-10,5))
   points(obs$x, obs$y, col=alpha ("red", 0.5), pch=19, cex=1.2)
@@ -116,9 +120,7 @@ avisMap<-function(obs, label = '', maptype = 'admin')
 .avisReadPeninsulaImg<-function()
 {
   .avisCacheReturnOrSetup(".ravis_img_ipeninsula", function(){
-
-      brick ( system.file('extdata/peninsula.tif', package="rAvis"))
-
+  brick ( system.file('tif/peninsula.tif', package="rAvis"))
   })
 }
 
@@ -126,7 +128,7 @@ avisMap<-function(obs, label = '', maptype = 'admin')
 {
   .avisCacheReturnOrSetup(".ravis_img_canarias", function(){
 
-      brick ( system.file('extdata/canarias.tif', package="rAvis"))
+      brick ( system.file('tif/canarias.tif', package="rAvis"))
 
   })
 }

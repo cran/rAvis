@@ -30,15 +30,16 @@ avisQuerySpecies(list("Bubo bubo", "Tyto alba"), args = list(year = 2012))
 }
 }
 \author{
-Javier Gonzalez \email{javigzz@yahoo.es}
+Javier Gonzalez Hernandez \email{javigzz@yahoo.es}
 
 Sara Varela \email{svarela@paleobiogeography.org}
 }
 \references{
-Sara Varela, Javier Gonzalez-Hernandez, Eduardo Casabella,
-Rafael Barrientos, in prep. rAvis: an R-package to download
-the information stored in Proyecto AVIS, a citizen science
-bird project.
+Sara Varela, Javier González-Hernández, Eduardo
+Casabella, Rafael Barrientos (2014) rAvis: An R-Package for
+downloading information stored in Proyecto AVIS, a citizen
+science bird project. PLoS ONE 9(3): e91650.
+doi:10.1371/journal.pone.0091650
 }
 \seealso{
 { http://proyectoavis.com }
